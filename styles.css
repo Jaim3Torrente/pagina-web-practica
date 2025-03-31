@@ -1,0 +1,95 @@
+/* Reset de estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+h1 {
+    text-align: center;
+    color: #1e3d58;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Imagen de logo */
+img {
+    display: block;
+    margin: 0 auto 20px;
+}
+
+/* Secciones */
+.section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 2em;
+    color: #1e3d58;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Estilo de personajes */
+.character {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+    transition: transform 0.3s ease-in-out;
+}
+
+.character:hover {
+    transform: scale(1.1);
+}
+
+.character img {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Estilo de párrafos */
+p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #666;
+}
+
+/* Estilos de enlaces (si se agregan más en el futuro) */
+a {
+    color: #1e3d58;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
