@@ -36,6 +36,8 @@ h1 {
 img {
     display: block;
     margin: 0 auto 20px;
+    max-width: 100%;
+    height: auto;
 }
 
 /* Secciones */
@@ -63,6 +65,7 @@ h3 {
     font-size: 1.2em;
     color: #555;
     transition: transform 0.3s ease-in-out;
+    width: 150px; /* Tamaño fijo que luego será ajustado */
 }
 
 .character:hover {
@@ -84,7 +87,7 @@ p {
     color: #666;
 }
 
-/* Estilos de enlaces (si se agregan más en el futuro) */
+/* Estilos de enlaces */
 a {
     color: #1e3d58;
     text-decoration: none;
@@ -92,4 +95,67 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+/* Media Queries para hacer el sitio responsivo */
+
+/* Tablets y dispositivos medianos */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.75em;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+
+    .character {
+        width: 120px;
+        font-size: 1em;
+    }
+
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+}
+
+/* Teléfonos y pantallas pequeñas */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    .character {
+        width: 100%;
+        margin: 10px auto;
+        display: block;
+    }
+
+    .character img {
+        width: 80px;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .container {
+        padding: 10px;
+    }
 }

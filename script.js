@@ -21,18 +21,51 @@ const personajes = {
     'Joseph Joestar (viejo)': 'Joseph Joestar, en su vejez, aparece en la Parte 3. Aunque ya mayor, sigue siendo un aliado vital para Jotaro y los demás, usando su ingenio y experiencia para superar desafíos. Su Stand es Hermit Purple'
 };
 
-// Función para mostrar la descripción de un personaje
-function mostrarDescripcion(personaje) {
+// Función para mostrar la descripción del personaje en un tooltip
+function mostrarDescripcion(personaje, event) {
     const descripcion = personajes[personaje];
-    alert(descripcion);  // Se puede mostrar la descripción en un alert o en un div, dependiendo de la preferencia.
+    const descripcionDiv = document.getElementById('descripcion');
+
+    descripcionDiv.innerText = descripcion;
+    descripcionDiv.style.left = `${event.pageX + 10}px`;
+    descripcionDiv.style.top = `${event.pageY + 10}px`;
+    descripcionDiv.style.display = 'block';
 }
 
-// Agregar los eventos de clic a las imágenes de personajes
+// Esperar a que el DOM esté cargado para asignar los eventos
 document.addEventListener('DOMContentLoaded', () => {
+    // Crear el contenedor para el tooltip si no existe
+    let descripcionDiv = document.getElementById('descripcion');
+    if (!descripcionDiv) {
+        descripcionDiv = document.createElement('div');
+        descripcionDiv.id = 'descripcion';
+        descripcionDiv.style.display = 'none';
+        descripcionDiv.style.position = 'absolute';
+        descripcionDiv.style.background = '#fff';
+        descripcionDiv.style.border = '1px solid #ccc';
+        descripcionDiv.style.padding = '10px';
+        descripcionDiv.style.borderRadius = '8px';
+        descripcionDiv.style.maxWidth = '250px';
+        descripcionDiv.style.zIndex = '1000';
+        descripcionDiv.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.2)';
+        document.body.appendChild(descripcionDiv);
+    }
+
     const personajesDivs = document.querySelectorAll('.character');
     
     personajesDivs.forEach(div => {
-        const personaje = div.querySelector('img').alt;  // Usamos el atributo alt para identificar al personaje
-        div.addEventListener('click', () => mostrarDescripcion(personaje));
+        const personaje = div.querySelector('img').alt;
+        div.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevenir cierre inmediato si se hace clic dentro
+            mostrarDescripcion(personaje, event);
+        });
+    });
+
+    // Ocultar el tooltip al hacer clic fuera
+    document.addEventListener('click', (e) => {
+        const descripcionDiv = document.getElementById('descripcion');
+        if (!e.target.closest('.character')) {
+            descripcionDiv.style.display = 'none';
+        }
     });
 });
